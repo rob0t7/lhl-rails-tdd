@@ -1,0 +1,31 @@
+<h1>Beers List</h1>
+
+<%= form_tag beers_path, method: 'GET' do %>
+  <div>
+    <%= text_field_tag :brewery_name, params[:brewery_name], placeholder: 'Brewery Name' %>
+  </div>
+  <div>
+    <%= button_tag 'Search'%>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Brewery</th>
+      <th>Style</th>
+      <th>ABV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @beers.each do |beer| %>
+      <tr>
+        <td><%= beer.name %></td>
+        <td><%= beer.brewery_name %></td>
+        <td><%= beer.style_name %></td>
+        <td><%= beer.abv %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
